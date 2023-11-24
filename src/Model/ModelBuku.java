@@ -50,4 +50,9 @@ public class ModelBuku {
         }
         return findBook;
     }
+
+    public void kembalikanStok (String judulBuku) {
+        NodeBuku updateBook = searchBookbyTitle(judulBuku);
+        updateBook.setStok(updateBook.getStok() + 1);
+    }
 }

@@ -12,9 +12,11 @@ public class Main {
         ViewBuku viewBuku = new ViewBuku();
         ViewAnggota viewAnggota = new ViewAnggota();
         ViewAdmin viewAdmin = new ViewAdmin();
+        ViewPeminjaman viewPeminjaman = new ViewPeminjaman();
         ControllerBuku controllerBuku = new ControllerBuku(Database.databaseBooks, viewBuku);
         ControllerAnggota controllerAnggota = new ControllerAnggota(Database.databaseMembers, viewAnggota);
         ControllerAdmin controllerAdmin = new ControllerAdmin(Database.databaseAdmin, viewAdmin);
+        ControllerPeminjaman controllerPeminjaman = new ControllerPeminjaman(Database.databaseMembers, Database.databaseBooks, Database.databasePeminjaman, viewPeminjaman);
 
         //cek login admin dengan sample admin static
         Database.databaseAdmin.insertAdmin("admin1", "Anya", "pass1");
@@ -33,14 +35,24 @@ public class Main {
                         viewMenu.subMenu1();
                         pilih1 = input.nextInt();
                         switch (pilih1) {
-                            case 1, 2 , 3 , 4, 5:
+                            case 1:
+                                controllerPeminjaman.insertLoanData();
                                 break;
-                            case 6:
+                            case 2:
+                                controllerPeminjaman.searchLoanData();
+                                break;
+                            case 3:
+                                controllerPeminjaman.viewAllLoanData();
+                                break;
+                            case 4:
+                                controllerPeminjaman.insertPengembalianData();
+                                break;
+                            case 5:
                                 continue;
                             default:
-                                System.out.println("Masukan pilihan 1-5!");
+                                System.out.println("Masukan pilihan 1-4!");
                         }
-                    } while (pilih1 >= 1 && pilih1 <= 5);
+                    } while (pilih1 >= 1 && pilih1 <= 4);
                     break;
 
                 case 2:
@@ -96,7 +108,7 @@ public class Main {
                             case 6:
                                 continue;
                             default:
-                                System.out.println("Masukan pilihan 1-5!");
+                                System.out.println("Masukan pilihan 1-6!");
                         }
                     } while (pilih3 >= 1 && pilih3 <= 5);
                     break;
@@ -125,7 +137,7 @@ public class Main {
                             case 6:
                                 continue;
                             default:
-                                System.out.println("Masukan pilihan 1-5!");
+                                System.out.println("Masukan pilihan 1-6!");
                         }
                     } while (pilih4 >= 1 && pilih4 <= 5);
                     break;

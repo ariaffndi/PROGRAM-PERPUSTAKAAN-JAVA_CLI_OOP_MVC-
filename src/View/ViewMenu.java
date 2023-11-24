@@ -6,7 +6,7 @@ public class ViewMenu {
         System.out.println("""
             1. Transaksi Peminjaman / Pengembalian\s
             2. Manajemen Data Buku\s
-            3. Manajemen Data Anggota")\s
+            3. Manajemen Data Anggota\s
             4. Manajemen Data Admin / Pegawai""");
         System.out.print("Masukkan pilihan : ");
     }
@@ -14,11 +14,10 @@ public class ViewMenu {
         System.out.println("\n--- Transaksi Peminjaman ---");
         System.out.println("""
                 1. Input Data Peminjaman\s
-                2. Delete Data Peminjaman\s
-                3. Update Data Peminjaman\s
-                4. Cari Data Peminjaman\s
-                5. Tampilkan Semua Data Peminjaman\s
-                6. kembali ke menu Utama""");
+                2. Cari Data Peminjaman\s
+                3. Tampilkan Semua Data Peminjaman\s
+                4. Input Data Pengembalian\s
+                5. kembali ke menu Utama""");
         System.out.print("Masukkan pilihan : ");
     }
     public void subMenu2() {

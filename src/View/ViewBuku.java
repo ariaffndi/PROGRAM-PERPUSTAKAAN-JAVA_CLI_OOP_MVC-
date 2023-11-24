@@ -75,6 +75,7 @@ public class ViewBuku {
         String searchJudul = input.next();
         NodeBuku buku = modelBuku.searchBookbyTitle(searchJudul);
         if (buku != null) {
+            System.out.println("--- Data Buku ---");
             booksData(buku);
         } else {
             System.out.println("Data Tidak Ditemukan !");
