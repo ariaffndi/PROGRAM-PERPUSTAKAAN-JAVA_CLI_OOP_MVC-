@@ -28,7 +28,7 @@ public class ViewAnggota {
         String searchIdMember = input.next();
         NodeAnggota member = modelAnggota.searchMemberbyId(searchIdMember);
         if (member != null) {
-            modelAnggota.deteleMember(searchIdMember);
+            modelAnggota.deleteMember(searchIdMember);
             System.out.println("Data Berhasil Dihapus!");
         } else {
             System.out.println("Data Tidak Ditemukan !");

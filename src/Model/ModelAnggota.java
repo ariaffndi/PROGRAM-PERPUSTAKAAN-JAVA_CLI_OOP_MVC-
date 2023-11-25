@@ -18,7 +18,7 @@ public class ModelAnggota {
     public ArrayList<NodeAnggota> getMembers() {
         return members;
     }
-    public void deteleMember (String idAnggota) {
+    public void deleteMember(String idAnggota) {
         NodeAnggota deleteMember = searchMemberbyId(idAnggota);
         members.remove(deleteMember);
     }
