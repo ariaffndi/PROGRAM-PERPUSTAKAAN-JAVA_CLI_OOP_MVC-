@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class ViewAnggota {
     Scanner input = new Scanner(System.in);
+    int total = 0;
     int incId = 1;
 
     public void insertMember(ModelAnggota modelAnggota){
@@ -19,6 +20,7 @@ public class ViewAnggota {
         String id = "M" + this.incId;
         modelAnggota.insertMember(id, inputNama, inputAlamat);
         incId++;
+        total++;
         System.out.println("Data Berhasil Ditambah!");
     }
 
@@ -30,6 +32,7 @@ public class ViewAnggota {
         if (member != null) {
             modelAnggota.deleteMember(searchIdMember);
             System.out.println("Data Berhasil Dihapus!");
+            total--;
         } else {
             System.out.println("Data Tidak Ditemukan !");
         }
@@ -72,7 +75,7 @@ public class ViewAnggota {
     }
 
     public void viewAllMembers (ArrayList<NodeAnggota> members){
-        if(incId == 1) {
+        if(total < 1) {
             System.out.println("\nData Masih Kosong !");
         }
         else {

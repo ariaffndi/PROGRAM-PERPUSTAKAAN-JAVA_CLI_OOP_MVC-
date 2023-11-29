@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class ViewBuku {
     Scanner input = new Scanner(System.in);
+    int total = 0;
     int incKode = 1;
 
     public void insertBook(ModelBuku modelBuku){
@@ -23,6 +24,7 @@ public class ViewBuku {
         String kode = "B" + this.incKode;
         modelBuku.insertBook(kode, inputJudulBuku, inputPengarangBuku, inputTahunBuku, inputStokBuku);
         incKode++;
+        total++;
         System.out.println("Data Berhasil Ditambah!");
     }
 
@@ -34,6 +36,7 @@ public class ViewBuku {
         if (buku != null) {
             modelBuku.deleteBook(searchKodeBuku);
             System.out.println("Data Berhasil Dihapus!");
+            total--;
         } else {
             System.out.println("Data Tidak Ditemukan !");
         }
@@ -83,7 +86,7 @@ public class ViewBuku {
     }
 
     public void viewAllBooks(ArrayList<NodeBuku> books){
-        if(incKode == 1) {
+        if(total < 1) {
             System.out.println("\nData Masih Kosong !");
         }
         else {

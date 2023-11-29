@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class ViewPeminjaman {
     Scanner input = new Scanner(System.in);
+    int total = 0;
     int incKodeTransaksi = 1;
 
     public void insertLoan(ModelAnggota modelAnggota, ModelBuku modelBuku, ModelPeminjaman modelPeminjaman) {
@@ -51,6 +52,7 @@ public class ViewPeminjaman {
         int inputTglKembali = input.nextInt();
         modelPeminjaman.insertDataPinjam(kodeTransaksi, namaPeminjam, bukuPeminjam, inputTglPinjam, inputTglKembali);
         incKodeTransaksi++;
+        total++;
         System.out.println("Data Berhasil Ditambah!");
     }
 
@@ -64,6 +66,7 @@ public class ViewPeminjaman {
             modelBuku.kembalikanStok(bukuKembali);
             modelPeminjaman.deleteDataPeminjaman(searchKode);
             System.out.println("Transaksi Pengembalian Berhasil!");
+            total--;
         } else {
             System.out.println("Data Tidak Ditemukan !");
         }
@@ -92,7 +95,7 @@ public class ViewPeminjaman {
     }
 
     public void viewAllDataPeminjaman (ArrayList<NodePeminjaman> loan){
-        if(incKodeTransaksi == 1) {
+        if(total < 1) {
             System.out.println("\nData Masih Kosong !");
         }
         else {
